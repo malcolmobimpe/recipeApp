@@ -1,0 +1,129 @@
+#title {
+    width: 100%;
+    height: 30px;
+    font-size: 2em;
+    font-weight: 200;
+    padding: 1%;
+  }
+  
+  #content {
+      width:100%;
+      height:100%;
+      font-size: 1.2em;
+      font-weight: 200;
+      border: 1xp solid #cdcdcd; 
+  }
+
+  .recipe-name {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .recipe-label {
+    font-size: 1.2em;
+    margin-bottom: 1%;
+  }
+  
+  .ingredient-label {
+    font-size: 1.2em;
+    margin-bottom: 1%;
+  }
+
+  .ingredient-label > span {
+      color: #cdcdcd
+  }
+  
+  .directions-area {
+    height: 150px !important;
+  
+  }
+.recipe-form {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    font-weight: 200;
+  }
+.ingredient-input{
+height: 25px;
+width: 200px;
+font-size: 1.2em;
+font-weight: 200;
+}
+.ingredient-directions > * {
+    margin:5% 0;
+  }
+.ingredient-amount {
+  
+    margin-left: 10%;
+}
+
+.create-recipe-btn {
+    border: 1px solid #0e83cd;;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 15px 70px;
+    display: inline-block;
+    margin: 15px 0 ;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 200;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  
+  .create-recipe-btn:hover {
+    color:#fff ;
+    background:  #248df0;
+  }
+  
+  .ingredient-container >  div {
+      display: flex;
+      flex-direction: column;
+      margin: 2% 0;
+      font-size: 1.25em;
+
+  }
+  .ingredients {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end
+  }
+
+
+  .recipe-ingredients{
+      display: flex;
+      justify-content: space-between;      width: 250px;
+      
+  }
+
+  .recipe-ingredient-item{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.recipe-item-container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 7%;
+}
+
+.recipe-item-container > div:nth-child(1) {
+font-size: 2em;
+}
+
+.ingredient-change-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #0e83cd;
+    cursor: pointer;
+}

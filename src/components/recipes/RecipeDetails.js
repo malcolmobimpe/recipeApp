@@ -4,27 +4,65 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import {Redirect} from 'react-router-dom'
 import moment from 'moment'
+import DeleteRecipe from './DeleteRecipe';
+import './RecipeDetail.css'
 
 const RecipeDetails = (props) => {
 const { recipe, auth } = props;
+console.log(props)
 
 if(!auth.uid) return <Redirect to='/signin'/>
 
 
 if (recipe){
+ 
   return (
-    <div className='container section project-details'>
-    <div className='card'>
-    <div className='card-content'>
-    <span className='card-title'> {recipe.title}</span>
-    <p>{recipe.content}</p>
+    <div className='recipe-page'>
+
+ 
+    <div className='recipe-row'>
+    <div className='title-container'> 
+     <h2 className='recipe-title'> {recipe.title}</h2>
+    <div className='recipe-content'>
+    
+    {recipe.content}
+    <div className='recipe-date'>{ moment(recipe.createdAt.toDate()).calendar()}</div>
+
     </div>
-    <div className='card-action grey'>
-    <div>Posted by {recipe.userName}</div>
-    <div>{ moment(recipe.createdAt.toDate()).calendar()}</div>
     
     </div>
+
+    <div className='ingredient-container'> 
+    <h2 className='recipe-title'>Ingredients</h2>
+<div className='recipe-ingredients'>
+{recipe &&
+          recipe.savedIngredients.map((ingredients, index)=> {
+            return (
+              <div className='ingredient-list'> 
+                <div key={index} >{ ingredients.name}:  <span>&nbsp;&nbsp;</span> </div>
+              <div key={index}> { ingredients.amount}</div>
+              </div>
+          
+            );
+          })}
+ 
+ 
+ 
+ </div>
+    
     </div>
+ 
+   
+    </div>
+
+
+
+
+    <div className=''>
+    </div>
+    
+   
+    
       </div>
   )
    

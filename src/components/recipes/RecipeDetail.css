@@ -1,0 +1,44 @@
+.recipe-page {
+  width: 100%;
+  font-weight: 200;
+}
+
+.recipe-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.recipe-row > * {
+  margin: 0 5%;
+}
+.title-container {
+  flex: 3;
+}
+
+.ingredient-container {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+}
+.recipe-title {
+  font-size: 2em;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+
+.recipe-content {
+  font-size: 1em;
+  line-height: 1.5;
+  font-weight: 100;
+}
+.recipe-date {
+  color: #cdcdcd;
+}
+
+
+.ingredient-list{
+  display: flex;
+  margin: 2%;
+  border-bottom: 1px dashed #cdcdcd;
+}

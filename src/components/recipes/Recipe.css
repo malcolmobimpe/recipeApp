@@ -1,0 +1,27 @@
+.create-recipe-page {
+  width: 100%;
+
+}
+
+.recipe-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+}
+
+
+.recipe-list > * {
+  flex: 1 1 200px;
+  margin: 20px;
+}
+
+
+
+
+
+
+
+.directions {
+  flex: 1;
+}

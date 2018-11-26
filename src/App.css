@@ -1,0 +1,43 @@
+
+html, body,#root, .app, .app>div {
+  height: 100%
+}
+
+h1, h2{
+  font-weight: 400;
+
+}
+ h2 {
+   font-size:1em;
+ }
+
+.hidden { display:none; }
+
+
+a{
+  text-decoration: none;
+cursor: pointer;}
+
+ul li {
+  list-style: none;
+
+}
+.App {
+  display: flex;
+  min-height: 100%;
+}
+
+.left-main {
+  flex: 1;
+  background-color:#fff;
+
+}
+.right-main{
+  flex: 7;
+  background-color:#fff
+}
+.main-content {
+  display: flex;
+  padding: 5%;
+}
+

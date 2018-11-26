@@ -1,19 +1,45 @@
-import React from 'react'
-import moment from 'moment'
+import React, { Component } from "react";
+import moment from "moment";
+import "./RecipeSummary.css";
 
-const RecipeSummary = ({recipe}) => {
+import DeleteRecipe from "./DeleteRecipe";
 
-        return(
-<div className='card'>
-<div className='card z-depth-0'>
-<div className='card-content'> 
-<span className='card-title'>{recipe.title} </span>  </div>
-<p>Posted by {recipe.userName}</p>
-<p className='grey-text'>{ moment(recipe.createdAt.toDate()).calendar()}</p>
-</div>
-</div>
-        )
+import EditRecipe from "./EditRecipe";
+import '../../App.css'
+import { connect } from 'react-redux'
+import { Link } from "react-router-dom";
 
+
+
+
+class RecipeSummary extends Component {
+  render() {
+    const { recipe } = this.props;
+    return (
+      <div className="recipe-summary">
+                        <Link to={"/recipes/" + recipe.id} key={recipe.id}>
+
+        <div className="card-content">
+          <span className="card-title">{recipe.title} </span>{" "}
+        </div>
+        </Link>        <p className="sub-text">
+          {moment(recipe.createdAt.toDate()).calendar()}
+        </p>
+        <div className={this.props.showDelete == false ? "hidden  " : "edit-recipe-box"} >
+          <DeleteRecipe recipeId={recipe.id} />
+          <EditRecipe recipeId={recipe.id}/>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default RecipeSummary
+
+const mapStateToProps = (state) => {
+   return {
+      showDelete: state.elements.showDelete,
+      
+   }
+ }
+ export default connect(mapStateToProps)(RecipeSummary);
+
