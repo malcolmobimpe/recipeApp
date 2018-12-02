@@ -1,36 +1,47 @@
+.recipe-container {
+  
+    padding: 3% 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  justify-content: center;
+    color: #fff;
+    background: #3A3F5C;
+    border-radius: 25px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 30%;
+}
+
+.recipe-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;;
+}
+
 .recipe-summary{
-    border: solid 1px #747d8c;
-    padding: 15%;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    justify-content: center;
+    margin: 0 5%;
     
 }
 
 .recipe-summary .card-title {
     font-size: 1.45em;
-    font-weight: 300;
-    color: #2f3640;
+    color: #fff;
 }
 
 .sub-text {
     font-size: .7em;
-    color: #b8b8b8;
+ 
 }
 
-.recipe-btn {
-    padding: 3% 2%;
-    width:100px;
-    color: #0e83cd;
-    text-align: center;
-    margin-top: 20%;
-    cursor: pointer;
-    
-}
-.recipe-btn:hover {
-    color: #09639b;
-}
+
 
 .edit-recipe-box{
     width: 100%;
@@ -40,3 +51,15 @@
 .edit-recipe-box >* {
     padding: 0;
 }
+.card-title{
+    font-size: 1.8em;
+    text-transform: uppercase;
+    padding: 0px 10%;
+    display: block;
+    white-space: inherit;
+    width: 200px;
+    height: 32px;
+    overflow-wrap: break-word;
+    margin-bottom: 5%;
+}
+

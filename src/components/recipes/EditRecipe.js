@@ -18,7 +18,7 @@ class EditRecipe extends Component {
 
     return (
       <NavLink to= '/create'
-        className="recipe-btn"
+        className="white-button"
         onClick={e => {
           editRecipe();
           //<Redirect to='/create'/>

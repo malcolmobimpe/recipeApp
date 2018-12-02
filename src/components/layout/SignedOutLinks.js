@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom'
 class SignedOutLinks extends React.Component {
   render(){
       return(
-          <ul className="">
-<li>  <NavLink to='/signup'>Sign Up</NavLink></li>
+          <div className="nav-links">
+<NavLink to='/signup'>Sign Up</NavLink>
 
-<li>  <NavLink to='/signin'>Log In</NavLink></li>    
-          </ul>
+  <NavLink to='/signin'>Log In</NavLink>
+          </div>
       )
 }
 }

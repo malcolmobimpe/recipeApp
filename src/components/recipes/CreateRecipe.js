@@ -102,10 +102,9 @@ this.setState({
         <div className="recipe-form">
           <div className="ingredient-directions">
             <div className="recipe-name ">
-              <label className="recipe-label" htmlFor="title">
-                Recipe Name
-              </label>
+              
               <input
+              placeholder='Recipe Name'
                 className="formName"
                 type="text"
                 id="title"
@@ -116,11 +115,10 @@ this.setState({
             </div>
 
             <div className="input-field directions">
-              <label className="recipe-label" htmlFor="content">
-                Recipe Directions/Notes
-              </label>
+  
 
               <textarea
+              placeholder='Recipe Directions/Notes'
                 className="materialize-textarea directions-area"
                 style={directionsArea}
                 placeholder=""
@@ -138,23 +136,23 @@ this.setState({
                 <div>
                   <FontAwesomeIcon icon="plus" size="1x" />
                 </div>
-                Add Ingredient
+                <span>Add Ingredient</span>
               </div>
               <div className="ingredient-container">
                 <div className="ingredient-name">
-                  <label htmlFor="ingredientName">Ingredient Name</label>
                   <input
+                  placeholder=' Ingredient Name'
                     onChange={this.handleChange}
-                    className="ingredient-input"
+                    
                     id={"ingredientName"}
                     value={this.state.ingredientName}
                   />
                 </div>
                 <div className="ingredient-amount">
-                  <label htmlFor="ingredientAmount">Ingredient Amount</label>
                   <input
+                  placeholder="Ingredient Amount"
                     onChange={this.handleChange}
-                    className="ingredient-input"
+             
                     id={"ingredientAmount"}
                     value={this.state.ingredientAmount}
                   />
@@ -163,7 +161,7 @@ this.setState({
             </div>
           </div>
 
-          <div className="ingredient-amount">
+          <div className="ingredient-add-list">
             <label className="ingredient-label"> Ingredients:</label>
             {this.state.savedIngredients.map((ingredient, index) => (
               <div className="recipe-item-container" key={index}>
@@ -192,8 +190,8 @@ this.setState({
           </div>
         </div>
 
-        <div className="input-field">
-          <span className="create-recipe-btn" onClick={this.handleSubmit}>
+        <div className="green-button-inv">
+          <span onClick={this.handleSubmit}>
             Create Recipe
           </span>
         </div>

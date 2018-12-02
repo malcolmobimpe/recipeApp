@@ -5,23 +5,24 @@
 }
 
 .sign-page{
-    display: flex;
+  
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(25deg, #003fd0, #2066e0, #248df0, #0eb4ff);
-    color: #fff;
     height: 100vh;
+   background-image:  linear-gradient(18deg, #295171, #307b7e, #2da68a, #0dd496);
+   color: #fff;
 
 
 }
 .signin-up{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    width: 70%;
  
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 5%;
 
 }
 
@@ -29,16 +30,17 @@
 
 
 .sign-container {
-    display: flex;
+
     align-items: flex-start;
     justify-content: flex-start;
-    height: 50vh;
+    flex: 1;
+    width: 33%;
  
 }
 
 
 .sign-container > form  {
-    display: flex;
+
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;

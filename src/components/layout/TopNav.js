@@ -7,14 +7,17 @@ import "./TopNav.css";
 import { editRecipeList } from "../../store/actions/elementActions";
 import { startFilter } from "../../store/actions/elementActions";
 import { cancleEdit } from "../../store/actions/elementActions";
-import { connect } from "react-redux";
+import {sendSortBy } from "../../store/actions/elementActions";
 
+import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import MyFeed from './MyFeed'
 
 class TopNav extends Component {
  
   state = {
-    filterWord: ""
+    filterWord: "",
+ 
   };
 
   handleEdit = e => {
@@ -25,19 +28,29 @@ class TopNav extends Component {
     this.setState({
       [e.target.id]: e.target.value
     });
-    this.props.startFilter(this.state);
+    this.props.startFilter(this.state.filterWord);
   };
 
 
  handleActiveEdit = e => {
    this.props.cancleEdit()
   };
+
+  handleSort = e => {
+
+    this.props.sendSortBy(e.target.value);
+console.log(e.target.value)
+  }
+
   render() {
     this.props.startFilter(this.state);
 
     const { recipes, auth } = this.props;
 
     return (
+      <div className='top-nav-container'>
+      
+      
       <div className="top-nav">
         <div className="top-nav-column">
           <NavLink to="/create" onClick={this.handleActiveEdit()}>
@@ -49,8 +62,8 @@ class TopNav extends Component {
         </div>
 
         <div className="top-search">
-          <label className="top-nav-text">Search Recipes</label>
-          <input id="filterWord" type="text" onKeyUp={this.handleFilter} />
+         
+          <input style={{'text-align':'center'}}placeholder='Search Recipes' id="filterWord" type="text" onKeyUp={this.handleFilter} />
         </div>
 
 
@@ -62,9 +75,23 @@ class TopNav extends Component {
           </div>
         </NavLink>
 
+{/*
+<div className='sort-by'> Sort By 
 
 
+<select value='' onChange={this.handleSort }  >
+
+<option value="name">Name</option>
+<option value="likes">Likes</option>
+
+
+</select>
+ </div>*/}
       </div>
+
+      <MyFeed />
+      </div>
+     
     );
   }
 }
@@ -79,7 +106,8 @@ const mapDispatchToProps = dispatch => {
   return {
     editRecipeList: () => dispatch(editRecipeList()),
     startFilter: filterWord => dispatch(startFilter(filterWord)),
-    cancleEdit: ()=> dispatch(cancleEdit())
+    cancleEdit: ()=> dispatch(cancleEdit()),
+    sendSortBy: ()=> dispatch(sendSortBy())
   };
 };
 export default connect(

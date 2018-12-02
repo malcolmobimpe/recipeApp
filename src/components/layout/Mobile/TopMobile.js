@@ -1,11 +1,11 @@
 import React from "react";
+import './TopMobile.css';
 import { Link } from "react-router-dom";
-import SignedInLinks from "./SignedInLinks";
-import SignedOutLinks from "./SignedOutLinks";
+import SignedInLinks from "../SignedInLinks";
+import SignedOutLinks from "../SignedOutLinks";
 import { connect } from "react-redux";
-import './Navbar.css'
 
-const Navbar = props => {
+const TopMain = props => {
   const { auth, profile } = props;
   //onsole.log(props)
   const links = auth.uid ? (
@@ -15,11 +15,11 @@ const Navbar = props => {
   );
 
   return (
-    <div className="left-nav">
+    <div className="top-mobile">
         <Link to="/" className=" left">
-        <img width='75' src={require("../../media/layout/temp-logo.jpg")} />
-
-          <h1>Tastebook</h1>
+      { <img width='75' src={require("../../../media/layout/temp-logo.jpg")} />
+}
+         
         </Link>
 
         {links}
@@ -35,4 +35,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps)(TopMain);

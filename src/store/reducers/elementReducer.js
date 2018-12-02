@@ -5,6 +5,11 @@
   showDelete: false,
   beginEdit: false,
  editId: '',
+ showFeed: true,
+ sortBy: '',
+ filterList:''
+
+ 
  };
     
   
@@ -39,6 +44,39 @@
           beginEdit: false,
 
         };
+        case "UPLOAD_PPROFILE_IMAGE":
+        return {
+        ...state
+        };
+        
+        case "PROFILE_IMAGE_URL":
+        const url = action.payload
+        return {
+        ...state,
+        profileUrl: url
+        };
+          
+        case "SHOW_MY_RECIPES":
+    
+        return {
+        ...state,
+        showFeed: false,
+        };
+        case "SHOW_MY_FEED":
+    
+        return {
+        ...state,
+        showFeed: true,
+        };
+        case "SORT_BY":
+        const sortTerm =  action.payload
+        return {
+         
+        ...state,
+        sortBy: sortTerm,
+        }
+        
+        
         
       
       default:

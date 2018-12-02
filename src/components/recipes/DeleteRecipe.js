@@ -18,7 +18,7 @@ class DeleteRecipe extends Component {
      }
         return (
      
-       <div className='recipe-btn' onClick={ e =>  
+       <div className='grey-button' onClick={ e =>  
            (window.confirm('Are you sure you want to delete this recipe'  ))
             && removeRecipe()  
         } >Delete</div>      

@@ -40,7 +40,7 @@ this.props.signIn(this.state)
       <input type='password' id='password' onChange={this.handleChange}/>
         </div>
 <div className='input-field'>
-<button className='sign-btn'>Login</button>
+<button className='green-button-inv'>Login</button>
 <div className="red-text">{ authError ? <p>{authError}</p>:null}</div>
 
 </div>

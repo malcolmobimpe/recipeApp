@@ -9,7 +9,6 @@ import './RecipeDetail.css'
 
 const RecipeDetails = (props) => {
 const { recipe, auth } = props;
-console.log(props)
 
 if(!auth.uid) return <Redirect to='/signin'/>
 
