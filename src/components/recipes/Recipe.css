@@ -1,5 +1,3 @@
-
-
 .recipe-list {
   width: 100%;
   display: flex;
@@ -7,17 +5,10 @@
   margin-top: 10%;
 }
 
-
 .recipe-list > * {
   flex: 1 1 200px;
   margin: 20px;
 }
-
-
-
-
-
-
 
 .directions {
   flex: 1;

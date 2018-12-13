@@ -1,29 +1,21 @@
-.left-nav{
- 
-    flex-direction: column;
-    padding: 2%;
-    align-items: center;
-    text-align: center;
-height: 100%;
-position: fixed;
+.left-nav {
+  flex-direction: column;
+  padding: 2%;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  position: fixed;
 }
 
-
-
-
 .left-nav ul li {
-    margin-bottom: 20%;
-   
-
+  margin-bottom: 20%;
 }
 
 .left-nav ul {
-    padding: 0;
+  padding: 0;
 }
-
 
 .nav-links {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-

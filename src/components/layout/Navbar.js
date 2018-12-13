@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 import { connect } from "react-redux";
-import './Navbar.css'
+import "./Navbar.css";
 
 const Navbar = props => {
   const { auth, profile } = props;
-  //onsole.log(props)
   const links = auth.uid ? (
     <SignedInLinks profile={profile} />
   ) : (
@@ -16,15 +15,16 @@ const Navbar = props => {
 
   return (
     <div className="left-nav">
-        <Link to="/" className=" left">
-        <img width='75' src={require("../../media/layout/temp-logo.jpg")} />
+      <Link to="/" className=" left">
+        <img
+          style={{ "margin-bottom": "60px" }}
+          width="65"
+          src={require("../../media/logo/square-logo.png")}
+        />
+      </Link>
 
-          <h1>Tastebook</h1>
-        </Link>
-
-        {links}
-    
-    </div >
+      {links}
+    </div>
   );
 };
 

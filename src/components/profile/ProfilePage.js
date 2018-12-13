@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-
-import { Link } from "react-router-dom";
 import "./ProfilePage.css";
 import { connect } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { compose } from "redux";
 import { firebaseConnect } from "react-redux-firebase";
-import { getFirebase } from "react-redux-firebase";
 import "@firebase/storage";
 import { uploadProfileImage } from "../../store/actions/elementActions";
 import GetProfilePic from "./GetProfilePic";
@@ -35,13 +31,9 @@ class ProfilePage extends Component {
         profileImage: profilePic,
         profileUrl: reader.result
       });
-      console.log(profilePic);
-      console.log(this.state.profileImage);
     };
 
     reader.readAsDataURL(profilePic);
-
-    console.log(this.props);
   };
 
   uploadImage = () => {
@@ -74,48 +66,44 @@ class ProfilePage extends Component {
       <div className="profile-page">
         <div className="profile-info">
           <GetProfilePic proPic />
-         
-         
-        
 
-          <div className='upload-photo-container'
+          <div
+            className="upload-photo-container"
             style={{ "flex-direction": "column" }}
             className={this.state.showEdit ? "" : "hidden"}
           >
-            <input type="file" style={{'width': '50%', 'font-size':'.9em'}} onChange={this.selectFile} />
-            <button
-              className="white-button"
-              onClick={() => this.uploadImage()}
-            >
+            <input
+              type="file"
+              style={{ width: "50%", "font-size": ".9em" }}
+              onChange={this.selectFile}
+            />
+            <button className="white-button" onClick={() => this.uploadImage()}>
               Upload
             </button>
           </div>
 
-
-          <div onClick={() => this.showEdit()}  className={this.state.showEdit ? "hidden " : "white-button"}>
-         Change Photo
+          <div
+            onClick={() => this.showEdit()}
+            className={this.state.showEdit ? "hidden " : "white-button"}
+          >
+            Change Photo
           </div>
 
-
           <div>
-          <span>username: </span>
+            <span>username: </span>
             {users[auth.uid].userName}
           </div>
           <div>
             <span>email: </span>
             {auth.email}
-        
-
+          </div>
         </div>
-
-         </div>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     recipes: state.firestore.ordered.recipes,
     auth: state.firebase.auth,

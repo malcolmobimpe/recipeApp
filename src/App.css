@@ -2,7 +2,7 @@
 body {
   font-weight: 200;
   font-family: "Roboto", sans-serif;
-  color:  #333333;
+  color: #333333;
 }
 
 html,
@@ -11,6 +11,8 @@ body,
 .app,
 .app > div {
   height: 100%;
+  width: 100vw;
+  margin: 0;
 }
 
 h1,
@@ -22,7 +24,6 @@ h6 {
   font-weight: 700;
 }
 
-
 .hidden {
   display: none;
 }
@@ -30,23 +31,22 @@ h6 {
 input {
   width: 70%;
   height: 30px;
-  background: #F0F0F0;
+  background: #f0f0f0;
   border-radius: 25px;
   font-weight: 600;
   font-size: 1.2em;
   border: none;
-  padding:1% 4% ;
+  padding: 1% 4%;
   font-weight: 400;
 }
 
-input ::placeholder{
-
+input ::placeholder {
 }
 
 textarea {
   width: 70%;
   height: 30px;
-  background: #F0F0F0;
+  background: #f0f0f0;
   border-radius: 25px;
   font-weight: 400;
   font-size: 1.2em;
@@ -67,8 +67,7 @@ ul li {
   min-height: 100%;
 }
 .top-mobile {
-  display:none;
-  
+  display: none;
 }
 .left-main {
   flex: 1;
@@ -127,9 +126,8 @@ ul li {
   background: #fff;
 }
 
-
-.white-button{
-  border:none;
+.white-button {
+  border: none;
   text-align: center;
   color: #333333;
   padding: 2% 4%;
@@ -140,23 +138,17 @@ ul li {
   border-radius: 25px;
   margin: 15px 0;
   outline: none;
-position: relative;
-text-align: center;
-background: #fff;
-
+  position: relative;
+  text-align: center;
+  background: #fff;
 }
 
-.white-button:hover{
- 
- background: #f0f0f0;
-
-
-
- 
+.white-button:hover {
+  background: #f0f0f0;
 }
 
-.green-button{
-  border:none;
+.green-button {
+  border: none;
   text-align: center;
   color: #4dbc4b;
   padding: 1.5% 4%;
@@ -167,25 +159,18 @@ background: #fff;
   border-radius: 25px;
   margin: 15px 0;
   outline: none;
-position: relative;
-text-align: center;
-
+  position: relative;
+  text-align: center;
 }
 
-.green-button:hover{
-
-background-image: linear-gradient(84deg, #62bab7, #63be8b, #5bc25d, #47c61e);
+.green-button:hover {
+  background-image: linear-gradient(84deg, #62bab7, #63be8b, #5bc25d, #47c61e);
 
   color: white;
-
-
-
- 
 }
 
-
-.green-button-inv{
-  border:none;
+.green-button-inv {
+  border: none;
   text-align: center;
   color: white;
   padding: 1.5% 4%;
@@ -196,23 +181,18 @@ background-image: linear-gradient(84deg, #62bab7, #63be8b, #5bc25d, #47c61e);
   border-radius: 25px;
   margin: 15px 0;
   outline: none;
-position: relative;
-text-align: center;
-background-image: linear-gradient(84deg, #62bab7, #63be8b, #5bc25d, #47c61e);
-
-
+  position: relative;
+  text-align: center;
+  background-image: linear-gradient(84deg, #62bab7, #63be8b, #5bc25d, #47c61e);
 }
 
-.green-button-inv:hover{
-
-color: white;
-background-image: linear-gradient(25deg, #62bab7, #63be8b, #54b266, #35df2b)
- 
+.green-button-inv:hover {
+  color: white;
+  background-image: linear-gradient(25deg, #62bab7, #63be8b, #54b266, #35df2b);
 }
 
-
-.grey-button{
-  border:none;
+.grey-button {
+  border: none;
   text-align: center;
   color: #333333;
   padding: 1.5% 4%;
@@ -223,28 +203,20 @@ background-image: linear-gradient(25deg, #62bab7, #63be8b, #54b266, #35df2b)
   border-radius: 25px;
   margin: 15px 0;
   outline: none;
-position: relative;
-text-align: center;
-background: #cdcdcd;
-
+  position: relative;
+  text-align: center;
+  background: #cdcdcd;
 }
 
-.grey-button:hover{
+.grey-button:hover {
+  background-image: #fff;
 
-background-image: #fff;
-  
   color: white;
-
-
-
- 
 }
 
-@media (max-width: 1224px) { 
-
-  .left-main{
+@media (max-width: 1224px) {
+  .left-main {
     display: none;
-
   }
   .top-mobile {
     display: flex;
@@ -254,7 +226,7 @@ background-image: #fff;
     justify-content: center;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    background: #F0F0F0;
+    background: #f0f0f0;
     padding: 4% 0%;
   }
 }

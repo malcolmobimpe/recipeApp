@@ -12,7 +12,7 @@ import EditRecipe from "./components/recipes/EditRecipe";
 import "./App.css";
 import TopNav from "./components/layout/TopNav";
 import TopMobile from "./components/layout/Mobile/TopMobile";
-
+import LandingPage from "./components/landingPage/LandingPage";
 import TopNavRecipe from "./components/layout/TopNavRecipe";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,17 +23,20 @@ import {
   faPlus,
   faMinus,
   faUser
-
-
-
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  faUser as farUser
-} from "@fortawesome/free-regular-svg-icons";
+import { faUser as farUser } from "@fortawesome/free-regular-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import MediaQuery from 'react-responsive';
+import MediaQuery from "react-responsive";
 
-library.add(faStroopwafel, faPlusCircle, faMinusCircle, faPlus, faMinus,farUser,faUser);
+library.add(
+  faStroopwafel,
+  faPlusCircle,
+  faMinusCircle,
+  faPlus,
+  faMinus,
+  farUser,
+  faUser
+);
 
 class App extends Component {
   render() {
@@ -48,21 +51,16 @@ class App extends Component {
             </div>
 
             <div className="right-main">
-            <TopMobile />
+              <TopMobile />
               <Switch>
-                
                 <Route path="/recipes/:id" component={TopNavRecipe} />
                 <Route exact path="/" component={TopNav} />
-
-                                
-
               </Switch>
 
               <div className="main-content">
                 <Switch>
-
                   <Route exact path="/" component={Dashboard} />
-              
+
                   <Route path="/recipes/:id" component={RecipeDetails} />
 
                   <Route path="/signin" component={SignIn} />
@@ -79,13 +77,7 @@ class App extends Component {
     } else {
       return (
         <Router>
-          <div className="sign-page">
-            <h1 className="sign-header"> Tastebook</h1>
-            <div className="signin-up">
-              <SignIn />
-              <SignUp />
-            </div>
-          </div>
+          <LandingPage />
         </Router>
       );
     }
@@ -93,7 +85,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  //  console.log(state)
   return {
     recipes: state.firestore.ordered.recipes,
     auth: state.firebase.auth

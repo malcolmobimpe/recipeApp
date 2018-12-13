@@ -1,5 +1,5 @@
 import React from "react";
-import './TopMobile.css';
+import "./TopMobile.css";
 import { Link } from "react-router-dom";
 import SignedInLinks from "../SignedInLinks";
 import SignedOutLinks from "../SignedOutLinks";
@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 
 const TopMain = props => {
   const { auth, profile } = props;
-  //onsole.log(props)
   const links = auth.uid ? (
     <SignedInLinks profile={profile} />
   ) : (
@@ -16,15 +15,17 @@ const TopMain = props => {
 
   return (
     <div className="top-mobile">
-        <Link to="/" className=" left">
-      { <img width='75' src={require("../../../media/layout/temp-logo.jpg")} />
-}
-         
-        </Link>
+      <Link to="/" className=" left">
+        {
+          <img
+            width="65"
+            src={require("../../../media/logo/square-logo.png")}
+          />
+        }
+      </Link>
 
-        {links}
-    
-    </div >
+      {links}
+    </div>
   );
 };
 

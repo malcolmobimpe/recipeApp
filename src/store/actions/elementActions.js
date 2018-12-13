@@ -1,8 +1,12 @@
+
+//initiate recipe list edit
+// triggers state change in store
 export const editRecipeList = () => {
   return {
     type: "EDIT_RECIPE_LIST"
   };
 };
+
 
 export const cancleEdit = () => {
   return {
@@ -10,6 +14,8 @@ export const cancleEdit = () => {
   };
 };
 
+
+//sends search filter to store for search bar
 export const startFilter = filterWord => {
   return {
     type: "BEGIN_FILTER",
@@ -17,6 +23,7 @@ export const startFilter = filterWord => {
   };
 };
 
+//filters list based on serach term 
 export const filterRecipeList = (term, feedState, userId) => {
   return (x, dispatch) => {
     if (feedState) {
@@ -29,25 +36,19 @@ export const filterRecipeList = (term, feedState, userId) => {
     }
   };
 };
-
-export const sortRecipeList = sortBy => {
-  return function(a, b) {
-    return a.sortBy - b.sortBy;
-  };
-};
-
+//sorting recipe list..in progress
 export const sendSortBy = sortTerm => {
-  console.log(sortTerm);
   return {
     type: "SORT_BY",
     payload: sortTerm
   };
 };
-
+//upload user profile
 export const uploadProfileImage = (profile, elemProps) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const user = elemProps.auth.uid;
     const storageRef = elemProps.firebase.storage().ref();
+    //firebase method for upload
     const fileRef = storageRef.child(`/propic/` + profile.name);
     let uploadTask = fileRef.put(profile);
     uploadTask.on(
@@ -59,9 +60,7 @@ export const uploadProfileImage = (profile, elemProps) => {
       function() {
         uploadTask.snapshot.ref
           .getDownloadURL()
-          .then(function(downloadURL) {
-            console.log("File available at", downloadURL);
-          })
+          .then(function(downloadURL) {})
           .then(() => {
             dispatch({ type: "UPLOAD_PROFILE_IMAGE" });
           })
@@ -91,16 +90,15 @@ export const getUsers = () => {
 
 //Modules
 
-//Social Module
-
+//Social Module //like and unlike
 export const updatePostLikes = (docId, currentLikes, userId) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
-    console.log("LIKE");
     const likedItems = getState().firestore.data.recipes[docId].likedBy;
     const checkLikes = () =>
+    // prevent user from liking more than once
       likedItems.includes(userId) ? likedItems : likedItems.concat([userId]);
-
     const checkLikeCount = () =>
+    //update likes if user is new to like list
       likedItems.includes(userId) ? currentLikes : currentLikes + 1;
     const likedList = checkLikes();
     const likeCount = checkLikeCount();
@@ -119,12 +117,9 @@ export const updatePostLikes = (docId, currentLikes, userId) => {
 
 export const dislikePost = (docId, currentLikes, userId) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
-    console.log("DISLIKE");
     const likedItems = getState().firestore.data.recipes[docId].likedBy;
     const index = likedItems.indexOf(userId);
     const checkLikes = () => likedItems.splice(index, 1);
-    console.log(index);
-    console.log(checkLikes());
     const checkLikeCount = currentLikes - 1;
     const likedList = checkLikes();
     const likeCount = checkLikeCount;

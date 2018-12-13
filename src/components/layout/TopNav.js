@@ -1,23 +1,18 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { Component} from 'react'
-import { Link } from "react-router-dom";
+import { Component } from "react";
 import { NavLink } from "react-router-dom";
 import "./TopNav.css";
 import { editRecipeList } from "../../store/actions/elementActions";
 import { startFilter } from "../../store/actions/elementActions";
 import { cancleEdit } from "../../store/actions/elementActions";
-import {sendSortBy } from "../../store/actions/elementActions";
-
+import { sendSortBy } from "../../store/actions/elementActions";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import MyFeed from './MyFeed'
+import MyFeed from "./MyFeed";
 
 class TopNav extends Component {
- 
   state = {
-    filterWord: "",
- 
+    filterWord: ""
   };
 
   handleEdit = e => {
@@ -31,16 +26,14 @@ class TopNav extends Component {
     this.props.startFilter(this.state.filterWord);
   };
 
-
- handleActiveEdit = e => {
-   this.props.cancleEdit()
+  handleActiveEdit = e => {
+    this.props.cancleEdit();
   };
 
   handleSort = e => {
-
     this.props.sendSortBy(e.target.value);
-console.log(e.target.value)
-  }
+    console.log(e.target.value);
+  };
 
   render() {
     this.props.startFilter(this.state);
@@ -48,50 +41,37 @@ console.log(e.target.value)
     const { recipes, auth } = this.props;
 
     return (
-      <div className='top-nav-container'>
-      
-      
-      <div className="top-nav">
-        <div className="top-nav-column">
-          <NavLink to="/create" onClick={this.handleActiveEdit()}>
-            <div className="top-nav-button">
-              <FontAwesomeIcon icon="plus" size="1x" />
-              <div className="top-nav-text">Add Recipe</div>
+      <div className="top-nav-container">
+        <div className="top-nav">
+          <div className="top-nav-column">
+            <NavLink to="/create" onClick={this.handleActiveEdit()}>
+              <div className="top-nav-button">
+                <FontAwesomeIcon icon="plus" size="1x" />
+                <div className="top-nav-text">Add Recipe</div>
+              </div>
+            </NavLink>
+          </div>
+
+          <div className="top-search">
+            <input
+              style={{ "text-align": "center" }}
+              placeholder="Search Recipes"
+              id="filterWord"
+              type="text"
+              onKeyUp={this.handleFilter}
+            />
+          </div>
+
+          <NavLink to="">
+            <div className="top-nav-button" onClick={this.handleEdit}>
+              <FontAwesomeIcon icon="minus" size="1x" />
+              <div className="top-nav-text">Edit Recipe List</div>
             </div>
           </NavLink>
         </div>
 
-        <div className="top-search">
-         
-          <input style={{'text-align':'center'}}placeholder='Search Recipes' id="filterWord" type="text" onKeyUp={this.handleFilter} />
-        </div>
-
-
-
-        <NavLink to="">
-          <div className="top-nav-button" onClick={this.handleEdit}>
-            <FontAwesomeIcon icon="minus" size="1x" />
-            <div className="top-nav-text">Edit Recipe List</div>
-          </div>
-        </NavLink>
-
-{/*
-<div className='sort-by'> Sort By 
-
-
-<select value='' onChange={this.handleSort }  >
-
-<option value="name">Name</option>
-<option value="likes">Likes</option>
-
-
-</select>
- </div>*/}
+        <MyFeed />
       </div>
-
-      <MyFeed />
-      </div>
-     
     );
   }
 }
@@ -99,15 +79,14 @@ console.log(e.target.value)
 const mapStateToProps = state => {
   return {
     recipes: state.firestore.ordered.recipes
-    //  activeEdit : state.elements.showDelete
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
     editRecipeList: () => dispatch(editRecipeList()),
     startFilter: filterWord => dispatch(startFilter(filterWord)),
-    cancleEdit: ()=> dispatch(cancleEdit()),
-    sendSortBy: ()=> dispatch(sendSortBy())
+    cancleEdit: () => dispatch(cancleEdit()),
+    sendSortBy: () => dispatch(sendSortBy())
   };
 };
 export default connect(

@@ -1,19 +1,18 @@
-.recipe-feed{
-    display: flex;
-justify-content: center;
-align-items: center;
+.recipe-feed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.recipe-feed >div {
-    margin: 0 2%;
-    padding: 0 2%;
-    cursor: pointer;
-    -webkit-transition:.2s ease-out;
-   
-   
-    transition: .2s ease-out;;
+.recipe-feed > div {
+  margin: 0 2%;
+  padding: 0 2%;
+  cursor: pointer;
+  -webkit-transition: 0.2s ease-out;
+
+  transition: 0.2s ease-out;
 }
 
 .feed-border {
-    border-bottom:#4dbc4b solid 2px;;
+  border-bottom: #4dbc4b solid 2px;
 }

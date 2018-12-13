@@ -1,21 +1,16 @@
 const initState = {
-  recipesItems: [
-    
-  ]
+  recipesItems: []
 };
 
 const recipeReducer = (state = initState, action) => {
   switch (action.type) {
     case "CREATE_RECIPE":
-      
       return state;
     case "CREATE_RECIPE_ERROR":
-     
       return state;
     default:
       return state;
     case "DELETE_RECIPE":
-      //console.log(action.recipe);
       return state;
   }
 };

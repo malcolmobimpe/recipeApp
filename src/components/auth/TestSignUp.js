@@ -4,10 +4,10 @@ import { signIn } from "../../store/actions/authActions";
 import { Redirect } from "react-router-dom";
 import "./Sign.css";
 
-class SignIn extends Component {
+class TestSignUp extends Component {
   state = {
-    email: "",
-    password: ""
+    email: "testtastebook@gmail.com",
+    password: "test1234"
   };
 
   handleChange = e => {
@@ -18,26 +18,35 @@ class SignIn extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    //pass in state to sign in action
+
     this.props.signIn(this.state);
   };
 
   render() {
     const { authError, auth } = this.props;
-    //if user is logged in redirect to home page
     if (auth.uid) return <Redirect to="/" />;
 
     return (
       <div className="sign-container">
         <form onSubmit={this.handleSubmit} className="">
-          <h2 className="">Sign In</h2>
+          <h2 className="">Trial Sign In</h2>
           <div className="input-field">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" onChange={this.handleChange} />
+            <input
+              value="testtastebook@gmail.com"
+              type="email"
+              id="email"
+              onChange={this.handleChange}
+            />
           </div>
           <div className="input-field">
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" onChange={this.handleChange} />
+            <input
+              value="test1234"
+              type="password"
+              id="password"
+              onChange={this.handleChange}
+            />
           </div>
           <div className="input-field">
             <button className="green-button-inv">Login</button>
@@ -64,4 +73,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SignIn);
+)(TestSignUp);

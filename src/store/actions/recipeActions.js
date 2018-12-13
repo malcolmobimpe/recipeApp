@@ -1,14 +1,16 @@
+
+//get collection, recipes from firebase
 export const getRecipe = () => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     getFirestore().collection("recipes");
   };
 };
 
+//create a new recipe
 export const createRecipe = (recipe, docId) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
-    // console.log(recipe)
     if (docId) {
-      // if there is an item to edit
+      // if there is an item to edit // this is for updating recipe content
       getFirestore()
         .collection("recipes")
         .doc(docId)
@@ -18,16 +20,12 @@ export const createRecipe = (recipe, docId) => {
     } else {
       const profile = getState().firebase.profile;
       const authorId = getState().firebase.auth.uid;
-      //const userName = getState().firebase.profile.userName;
       getFirestore()
         .collection("recipes")
         .add({
           ...recipe,
-          //userName: userName,
-
           currentLikes: 0,
           likedBy: [],
-
           authorId: authorId,
           createdAt: new Date()
         })
@@ -55,7 +53,7 @@ export const deleteRecipe = targetRecipe => {
       });
   };
 };
-
+//activates edit for recipe update
 export const activateEdit = recipeId => {
   return {
     type: "BEGIN_RECIPE_EDIT",

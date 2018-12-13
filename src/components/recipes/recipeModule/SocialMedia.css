@@ -1,11 +1,13 @@
 .like-comment {
-    display:flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .recipe-icon {
-    font-size:2em;
-    cursor: pointer;
+  font-size: 2em;
+  cursor: pointer;
 }
 
-.likes-container{    display: flex;}
+.likes-container {
+  display: flex;
+}

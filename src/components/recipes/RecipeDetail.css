@@ -36,8 +36,7 @@
   color: #cdcdcd;
 }
 
-
-.ingredient-list{
+.ingredient-list {
   display: flex;
   margin: 2%;
   border-bottom: 1px dashed #cdcdcd;

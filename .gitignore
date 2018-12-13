@@ -5,12 +5,15 @@
 /.pnp
 .pnp.js
 
+
 # testing
 /coverage
 /src/config/fbConfig.js
 
+# server 
+/functions
 # production
-/build
+/dist
 
 # misc
 .DS_Store
@@ -22,3 +25,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+

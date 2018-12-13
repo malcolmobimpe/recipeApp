@@ -1,0 +1,49 @@
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-weight: 200;
+  align-self: center;
+}
+.landing-nav {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 5vh;
+  background: white;
+  z-index: 1000;
+}
+.landing-hero {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-background {
+  background-image: url("https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-0.3.5&s=aa5f954f8c3de6f8427e6f8ad35c0085&auto=format&fit=crop&w=1350&q=80");
+  background-size: cover;
+  background-position: center;
+  width: 50%;
+  height: 100vh;
+}
+
+.landing-hero > :nth-child(1) {
+  margin-left: 10%;
+  font-size: 1.1em;
+}
+
+.landing-hero > * {
+  flex: 1 306.3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 680px) {
+  .hero-background {
+    height: 20vh;
+  }
+}

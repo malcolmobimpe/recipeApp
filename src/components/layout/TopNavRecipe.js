@@ -1,7 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import {Component} from 'react'
-import { Link } from "react-router-dom";
+import { Component } from "react";
 import { NavLink } from "react-router-dom";
 import "./TopNav.css";
 import { editRecipeList } from "../../store/actions/elementActions";
@@ -12,7 +10,6 @@ import { activateEdit } from "../../store/actions/recipeActions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class TopNavRecipe extends Component {
- 
   state = {
     filterWord: ""
   };
@@ -34,31 +31,23 @@ class TopNavRecipe extends Component {
     const { recipes, auth } = this.props;
 
     const editRecipe = () => {
-    const recipeId = window.location.href.split('recipes/')[1];;
-    console.log(recipeId)
+      const recipeId = window.location.href.split("recipes/")[1];
       this.props.activateEdit(recipeId);
-
-    //  console.log(this.props.recipeId);
     };
 
     return (
       <div className="top-nav">
-      
-    
-
-
-        <NavLink to= '/create'onClick={e => {
-          editRecipe();
-          //<Redirect to='/create'/>
-        }}>
+        <NavLink
+          to="/create"
+          onClick={e => {
+            editRecipe();
+          }}
+        >
           <div className="top-nav-button" onClick={this.handleEdit}>
             <FontAwesomeIcon icon="minus" size="1x" />
             <div className="top-nav-text">Edit Recipe</div>
           </div>
         </NavLink>
-
-
-
       </div>
     );
   }
@@ -67,7 +56,6 @@ class TopNavRecipe extends Component {
 const mapStateToProps = state => {
   return {
     recipes: state.firestore.ordered.recipes
-    //  activeEdit : state.elements.showDelete
   };
 };
 const mapDispatchToProps = dispatch => {
